@@ -1,8 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://17lkj7lmm4bh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgne0"]
+size = Vector2(65, 89)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fe2wi"]
+size = Vector2(65, 89)
 
 [node name="Player" type="Area2D"]
 metadata/_edit_group_ = true
