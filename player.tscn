@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://17lkj7lmm4bh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgne0"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fe2wi"]
+
+[node name="Player" type="Area2D"]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vgne0")
+
+[node name="PlaceholderSprite" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_fe2wi")
