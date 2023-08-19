@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://17lkj7lmm4bh"]
+[gd_scene load_steps=4 format=3 uid="uid://17lkj7lmm4bh"]
+
+[ext_resource type="Script" path="res://Player.cs" id="1_2atmo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgne0"]
 size = Vector2(65, 89)
@@ -7,6 +9,7 @@ size = Vector2(65, 89)
 size = Vector2(65, 89)
 
 [node name="Player" type="Area2D"]
+script = ExtResource("1_2atmo")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
