@@ -14,5 +14,35 @@ public partial class Player : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-	}
+		Vector2 velocity=Vector2.Zero;
+		int velPreMult = 1;
+
+        if (Input.IsActionPressed("move_up"))
+        {
+            velocity.Y -= velPreMult;
+        }
+
+        if (Input.IsActionPressed("move_down"))
+        {
+            velocity.Y += velPreMult;
+        }
+
+        if (Input.IsActionPressed("move_left"))
+        {
+            velocity.X -= velPreMult;
+        }
+
+        if (Input.IsActionPressed("move_right"))
+        {
+            velocity.X += velPreMult;
+        }
+
+        if (velocity.Length() > 0)
+        {
+            velocity=velocity.Normalized()*Speed;
+        }
+
+        Position += velocity*(float)delta;
+
+    }
 }
