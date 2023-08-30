@@ -10,6 +10,7 @@ size = Vector2(65, 89)
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_nihw8")
+Speed = 250
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
