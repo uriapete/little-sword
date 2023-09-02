@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://c5rjxu32q282g"]
+
+[node name="SpawnArea" type="TileMap"]
+format = 2
