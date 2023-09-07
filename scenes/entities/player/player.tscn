@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://17lkj7lmm4bh"]
+[gd_scene load_steps=7 format=3 uid="uid://17lkj7lmm4bh"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/Player.cs" id="1_nihw8"]
-[ext_resource type="Texture2D" uid="uid://bb2r7raocapii" path="res://assets/entities/player/player-front-idle.png" id="2_tsrdx"]
+[ext_resource type="Texture2D" uid="uid://ci753u86svq7t" path="res://assets/entities/player/player-tilemap.png" id="2_bcmbm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgne0"]
 size = Vector2(10, 15)
@@ -9,11 +9,15 @@ size = Vector2(10, 15)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fe2wi"]
 size = Vector2(15, 21)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikclo"]
+atlas = ExtResource("2_bcmbm")
+region = Rect2(0, 2, 15, 21)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_e2ysa"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_tsrdx")
+"texture": SubResource("AtlasTexture_ikclo")
 }],
 "loop": true,
 "name": &"default",
