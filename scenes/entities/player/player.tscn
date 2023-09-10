@@ -47,6 +47,32 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa5sd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wcws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53qrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yc43a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dscxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijka3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5ver")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgne0"]
