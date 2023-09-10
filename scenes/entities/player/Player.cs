@@ -17,6 +17,8 @@ public partial class Player : Area2D
 		Vector2 velocity=Vector2.Zero;
 		int velPreMult = 1;
 
+        AnimatedSprite2D animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+
         if (Input.IsActionPressed("move_up"))
         {
             velocity.Y -= velPreMult;
@@ -25,6 +27,8 @@ public partial class Player : Area2D
         if (Input.IsActionPressed("move_down"))
         {
             velocity.Y += velPreMult;
+            animatedSprite2D.Animation = "walk_down";
+            animatedSprite2D.Play();
         }
 
         if (Input.IsActionPressed("move_left"))
@@ -40,6 +44,11 @@ public partial class Player : Area2D
         if (velocity.Length() > 0)
         {
             velocity=velocity.Normalized()*Speed;
+        }
+        else
+        {
+            animatedSprite2D.Animation = "idle";
+            animatedSprite2D.Stop();
         }
 
         Position += velocity*(float)delta;
