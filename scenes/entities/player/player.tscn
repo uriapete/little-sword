@@ -89,6 +89,7 @@ texture = SubResource("PlaceholderTexture2D_fe2wi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e2ysa")
+animation = &"idle"
 offset = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
