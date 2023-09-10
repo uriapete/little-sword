@@ -10,21 +10,21 @@ size = Vector2(15, 21)
 atlas = ExtResource("2_bcmbm")
 region = Rect2(0, 0, 17, 25)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wa5sd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yc43a"]
 atlas = ExtResource("2_bcmbm")
-region = Rect2(51, 0, 17, 25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5wcws"]
-atlas = ExtResource("2_bcmbm")
-region = Rect2(34, 0, 17, 25)
+region = Rect2(0, 0, 17, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_53qrs"]
 atlas = ExtResource("2_bcmbm")
 region = Rect2(17, 0, 17, 25)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yc43a"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wcws"]
 atlas = ExtResource("2_bcmbm")
-region = Rect2(0, 0, 17, 25)
+region = Rect2(34, 0, 17, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa5sd"]
+atlas = ExtResource("2_bcmbm")
+region = Rect2(51, 0, 17, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dscxs"]
 atlas = ExtResource("2_bcmbm")
@@ -50,6 +50,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_yc43a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53qrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wcws")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_wa5sd")
 }, {
 "duration": 1.0,
@@ -69,10 +78,16 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h5ver")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijka3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dscxs")
 }],
 "loop": true,
 "name": &"walk_down",
-"speed": 10.0
+"speed": 30.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgne0"]
