@@ -58,7 +58,6 @@ public partial class Player : Area2D
         // resetting anim when velocity <=0
         else
         {
-            animatedSprite2D.Animation = "idle";
             animatedSprite2D.Stop();
         }
 
