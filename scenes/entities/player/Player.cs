@@ -15,7 +15,7 @@ public partial class Player : Area2D
     public override void _Process(double delta)
     {
         // resets velocity to zero every frame
-        Vector2 velocity =Vector2.Zero;
+        Vector2 velocity = Vector2.Zero;
 
         // seperated out value to add/sub from velocity values for easy changing
         // might consider making this an export var to be able to tune straight from godot instead
@@ -46,10 +46,14 @@ public partial class Player : Area2D
             velocity.X += velPreMult;
         }
 
-        // normalizes speed when velocity>0 so player will move same distance when moving diagonal as opposed to straight cardinals
+        // if player is moving:
         if (velocity.Length() > 0)
         {
-            velocity=velocity.Normalized()*Speed;
+            // normalize speed so player will move same distance when moving diagonal compared to straight cardinals
+            velocity = velocity.Normalized() * Speed;
+
+            // calc what direction player is moving
+            // and set animation mode to walk in that direction
             switch (velocity.Angle() * 180 / MathF.PI)
             {
                 case 0:
@@ -77,15 +81,18 @@ public partial class Player : Area2D
                     animatedSprite2D.FlipH = false;
                     break;
             }
+
+            // then play animation (player is moving after all!)
             animatedSprite2D.Play();
         }
+
         // resetting anim when velocity <=0
         else
         {
             animatedSprite2D.Stop();
         }
 
-        Position += velocity*(float)delta;
+        Position += velocity * (float)delta;
 
     }
 }
