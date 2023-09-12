@@ -104,6 +104,47 @@ animations = [{
 "loop": true,
 "name": &"walk_down",
 "speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ry62j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utjch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igd66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8ovx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igd66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utjch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ry62j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jducn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htgrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8myk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htgrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jducn")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgne0"]
