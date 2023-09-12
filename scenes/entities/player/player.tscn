@@ -34,6 +34,34 @@ region = Rect2(85, 0, 17, 25)
 atlas = ExtResource("2_bcmbm")
 region = Rect2(102, 0, 17, 25)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry62j"]
+atlas = ExtResource("2_bcmbm")
+region = Rect2(0, 25, 17, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utjch"]
+atlas = ExtResource("2_bcmbm")
+region = Rect2(17, 25, 17, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igd66"]
+atlas = ExtResource("2_bcmbm")
+region = Rect2(34, 25, 17, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8ovx"]
+atlas = ExtResource("2_bcmbm")
+region = Rect2(51, 25, 17, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jducn"]
+atlas = ExtResource("2_bcmbm")
+region = Rect2(68, 25, 17, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htgrk"]
+atlas = ExtResource("2_bcmbm")
+region = Rect2(85, 25, 17, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8myk"]
+atlas = ExtResource("2_bcmbm")
+region = Rect2(102, 25, 17, 25)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_e2ysa"]
 animations = [{
 "frames": [{
