@@ -24,7 +24,6 @@ public partial class Player : Area2D
         // gets animated sprite
         // hey web devs! you know query selector?
         AnimatedSprite2D animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-        animatedSprite2D.FlipH = false;
 
         // most of these should be pretty self explanatory
         if (Input.IsActionPressed("move_up"))
@@ -35,31 +34,50 @@ public partial class Player : Area2D
         if (Input.IsActionPressed("move_down"))
         {
             velocity.Y += velPreMult;
-            animatedSprite2D.Animation = "walk_down";
-            animatedSprite2D.Play();
         }
 
         if (Input.IsActionPressed("move_left"))
         {
             velocity.X -= velPreMult;
-            animatedSprite2D.Animation = "walk_right";
-            animatedSprite2D.FlipH=true;
-            animatedSprite2D.Play();
         }
 
         if (Input.IsActionPressed("move_right"))
         {
             velocity.X += velPreMult;
-            animatedSprite2D.Animation = "walk_right";
-            animatedSprite2D.Play();
         }
-
-
 
         // normalizes speed when velocity>0 so player will move same distance when moving diagonal as opposed to straight cardinals
         if (velocity.Length() > 0)
         {
             velocity=velocity.Normalized()*Speed;
+            switch (velocity.Angle() * 180 / MathF.PI)
+            {
+                case 0:
+                    if (animatedSprite2D.Animation != "walk_right" && animatedSprite2D.FlipH != false)
+                    {
+                        animatedSprite2D.Stop();
+                    }
+                    animatedSprite2D.Animation = "walk_right";
+                    animatedSprite2D.FlipH = false;
+                    break;
+                case 180:
+                    if (animatedSprite2D.Animation != "walk_right" && animatedSprite2D.FlipH != true)
+                    {
+                        animatedSprite2D.Stop();
+                    }
+                    animatedSprite2D.Animation = "walk_right";
+                    animatedSprite2D.FlipH = true;
+                    break;
+                case 90:
+                    if (animatedSprite2D.Animation != "walk_down")
+                    {
+                        animatedSprite2D.Stop();
+                    }
+                    animatedSprite2D.Animation = "walk_down";
+                    animatedSprite2D.FlipH = false;
+                    break;
+            }
+            animatedSprite2D.Play();
         }
         // resetting anim when velocity <=0
         else
