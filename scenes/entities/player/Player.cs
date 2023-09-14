@@ -54,9 +54,10 @@ public partial class Player : Area2D
 
             // calc what direction player is moving
             // and set animation mode to walk in that direction
-            switch (velocity.Angle() * 180 / MathF.PI)
+            switch ((double)(velocity.Angle() * 180 / MathF.PI))
             {
-                case 0:
+                case >-67.5 and <67.5:
+                    // 0 deg - right
                     if (animatedSprite2D.Animation != "walk_right" && animatedSprite2D.FlipH != false)
                     {
                         animatedSprite2D.Stop();
@@ -64,7 +65,8 @@ public partial class Player : Area2D
                     animatedSprite2D.Animation = "walk_right";
                     animatedSprite2D.FlipH = false;
                     break;
-                case 180:
+                case (<-112.5)or(>112.5):
+                    // 180 deg - left
                     if (animatedSprite2D.Animation != "walk_right" && animatedSprite2D.FlipH != true)
                     {
                         animatedSprite2D.Stop();
@@ -72,7 +74,8 @@ public partial class Player : Area2D
                     animatedSprite2D.Animation = "walk_right";
                     animatedSprite2D.FlipH = true;
                     break;
-                case 90:
+                case >67.5and<112.5:
+                    // 90 - down
                     if (animatedSprite2D.Animation != "walk_down")
                     {
                         animatedSprite2D.Stop();
@@ -80,7 +83,8 @@ public partial class Player : Area2D
                     animatedSprite2D.Animation = "walk_down";
                     animatedSprite2D.FlipH = false;
                     break;
-                case -90:
+                case <-67.5and>-112.5:
+                    // 270 - up
                     if (animatedSprite2D.Animation != "walk_up")
                     {
                         animatedSprite2D.Stop();
