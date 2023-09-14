@@ -80,6 +80,14 @@ public partial class Player : Area2D
                     animatedSprite2D.Animation = "walk_down";
                     animatedSprite2D.FlipH = false;
                     break;
+                case -90:
+                    if (animatedSprite2D.Animation != "walk_up")
+                    {
+                        animatedSprite2D.Stop();
+                    }
+                    animatedSprite2D.Animation = "walk_up";
+                    animatedSprite2D.FlipH = false;
+                    break;
             }
 
             // then play animation (player is moving after all!)
