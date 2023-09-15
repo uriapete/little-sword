@@ -3,6 +3,7 @@ using System;
 
 public partial class Player : Area2D
 {
+    //basic player speed
     [Export] public int Speed { get; set; } = 10;
 
     // seperated out value to add/sub from velocity values for easy changing
