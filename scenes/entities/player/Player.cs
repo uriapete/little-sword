@@ -3,8 +3,10 @@ using System;
 
 public partial class Player : Area2D
 {
-    [Export]
-    public int Speed { get; set; } = 10;
+    [Export] public int Speed { get; set; } = 10;
+
+    // seperated out value to add/sub from velocity values for easy changing
+    [Export] public int VelPreMult = 1;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -17,10 +19,6 @@ public partial class Player : Area2D
         // resets velocity to zero every frame
         Vector2 velocity = Vector2.Zero;
 
-        // seperated out value to add/sub from velocity values for easy changing
-        // might consider making this an export var to be able to tune straight from godot instead
-        int velPreMult = 1;
-
         // gets animated sprite
         // hey web devs! you know query selector?
         AnimatedSprite2D animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
@@ -28,22 +26,22 @@ public partial class Player : Area2D
         // most of these should be pretty self explanatory
         if (Input.IsActionPressed("move_up"))
         {
-            velocity.Y -= velPreMult;
+            velocity.Y -= VelPreMult;
         }
 
         if (Input.IsActionPressed("move_down"))
         {
-            velocity.Y += velPreMult;
+            velocity.Y += VelPreMult;
         }
 
         if (Input.IsActionPressed("move_left"))
         {
-            velocity.X -= velPreMult;
+            velocity.X -= VelPreMult;
         }
 
         if (Input.IsActionPressed("move_right"))
         {
-            velocity.X += velPreMult;
+            velocity.X += VelPreMult;
         }
 
         // if player is moving:
