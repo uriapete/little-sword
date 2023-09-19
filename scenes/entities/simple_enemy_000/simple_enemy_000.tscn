@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cx7ostrrwcog"]
+[gd_scene load_steps=5 format=3 uid="uid://cx7ostrrwcog"]
+
+[ext_resource type="Script" path="res://scenes/entities/simple_enemy_000/SimpleEnemy000.cs" id="1_f8c2m"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0oskx"]
 
@@ -9,6 +11,7 @@ size = Vector2(15, 15)
 size = Vector2(15, 15)
 
 [node name="SimpleEnemy000" type="Area2D"]
+script = ExtResource("1_f8c2m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0oskx")
