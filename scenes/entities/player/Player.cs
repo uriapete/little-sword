@@ -106,4 +106,9 @@ public partial class Player : Area2D
         Position += velocity * (float)delta;
 
     }
+
+    public void OnBodyEntered()
+    {
+
+    }
 }
