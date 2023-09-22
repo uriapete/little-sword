@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Player : Area2D
+public partial class PlayerArea : Area2D
 {
     //basic player speed
     [Export] public int Speed { get; set; } = 10;
