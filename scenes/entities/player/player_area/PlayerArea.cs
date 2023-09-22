@@ -23,8 +23,6 @@ public partial class PlayerArea : Area2D
         //// if player is moving:
         //if (velocity.Length() > 0)
         //{
-        //    // normalize speed so player will move same distance when moving diagonal compared to straight cardinals
-        //    velocity = velocity.Normalized() * Speed;
 
         //    // calc what direction player is moving
         //    // and set animation mode to walk in that direction
