@@ -1,11 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://n1a872fv2f8m"]
+[gd_scene load_steps=28 format=3 uid="uid://n1a872fv2f8m"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/Player.cs" id="1_2uque"]
 [ext_resource type="Texture2D" uid="uid://ci753u86svq7t" path="res://assets/entities/player/player-tilemap.png" id="2_fhx5m"]
-[ext_resource type="PackedScene" uid="uid://17lkj7lmm4bh" path="res://scenes/entities/player/player_area/player_area.tscn" id="2_fi2pl"]
+[ext_resource type="Script" path="res://scenes/entities/player/PlayerHitArea2D.cs" id="3_ku400"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0k1q3"]
-size = Vector2(16, 22)
+size = Vector2(16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yc43a"]
 atlas = ExtResource("2_fhx5m")
@@ -217,12 +217,15 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2u2qm"]
+size = Vector2(6, 12)
+
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_2uque")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_0k1q3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -230,4 +233,9 @@ sprite_frames = SubResource("SpriteFrames_jxyh2")
 animation = &"walk_down"
 offset = Vector2(0, -1)
 
-[node name="PlayerArea" parent="." instance=ExtResource("2_fi2pl")]
+[node name="PlayerHitArea2D" type="Area2D" parent="."]
+script = ExtResource("3_ku400")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitArea2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_2u2qm")
