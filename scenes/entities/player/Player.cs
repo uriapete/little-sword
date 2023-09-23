@@ -108,4 +108,9 @@ public partial class Player : CharacterBody2D
             animatedSprite2D.Stop();
         }
     }
+
+    private void OnPlayerHitArea2dBodyEntered(Node2D body)
+    {
+        GD.Print("Body hit!");
+    }
 }
