@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scenes/entities/player/PlayerHitArea2D.cs" id="3_ku400"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0k1q3"]
-size = Vector2(16, 24)
+size = Vector2(15, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yc43a"]
 atlas = ExtResource("2_fhx5m")
