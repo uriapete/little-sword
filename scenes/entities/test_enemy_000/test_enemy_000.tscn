@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dllacyg5pwbbm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_to8fp"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yklvf"]
+size = Vector2(15, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qekb"]
+size = Vector2(15, 15)
+
+[node name="TestEnemy000" type="RigidBody2D"]
+gravity_scale = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_to8fp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_yklvf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0qekb")
