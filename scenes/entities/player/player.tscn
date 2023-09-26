@@ -220,7 +220,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2u2qm"]
 size = Vector2(6, 12)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["character", "player"]]
 collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_2uque")
@@ -235,7 +235,7 @@ sprite_frames = SubResource("SpriteFrames_jxyh2")
 animation = &"walk_down"
 offset = Vector2(0, -1)
 
-[node name="PlayerHitArea2D" type="Area2D" parent="."]
+[node name="PlayerHitArea2D" type="Area2D" parent="." groups=["hurtbox", "player"]]
 script = ExtResource("3_ku400")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitArea2D"]
