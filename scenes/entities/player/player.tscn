@@ -218,7 +218,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2u2qm"]
-size = Vector2(6, 12)
+size = Vector2(6, 6)
 
 [node name="Player" type="CharacterBody2D" groups=["character", "player"]]
 collision_layer = 0
@@ -239,7 +239,7 @@ offset = Vector2(0, -1)
 script = ExtResource("3_ku400")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitArea2D"]
-position = Vector2(0, 1)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_2u2qm")
 
 [connection signal="body_entered" from="PlayerHitArea2D" to="." method="OnPlayerHitArea2dBodyEntered"]
