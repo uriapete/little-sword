@@ -9,6 +9,7 @@ size = Vector2(15, 15)
 size = Vector2(15, 15)
 
 [node name="TestEnemy000" type="RigidBody2D" groups=["enemy", "test"]]
+collision_mask = 16
 gravity_scale = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
