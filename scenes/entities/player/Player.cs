@@ -58,7 +58,7 @@ public partial class Player : CharacterBody2D
 
             // calc what direction player is moving
             // and set animation mode to walk in that direction
-            switch ((double)(velocity.Angle() * 180 / MathF.PI))
+            switch ((double)(Mathf.RadToDeg(velocity.Angle())))
             {
                 case > -67.5 and < 67.5:
                     // 0 deg - right
