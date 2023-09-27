@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://n1a872fv2f8m"]
+[gd_scene load_steps=31 format=3 uid="uid://n1a872fv2f8m"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/Player.cs" id="1_2uque"]
 [ext_resource type="Texture2D" uid="uid://ci753u86svq7t" path="res://assets/entities/player/player-tilemap.png" id="2_fhx5m"]
@@ -6,6 +6,18 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0k1q3"]
 size = Vector2(15, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtw3b"]
+atlas = ExtResource("2_fhx5m")
+region = Rect2(17, 75, 17, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08rlm"]
+atlas = ExtResource("2_fhx5m")
+region = Rect2(34, 75, 17, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ykcb"]
+atlas = ExtResource("2_fhx5m")
+region = Rect2(0, 75, 17, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yc43a"]
 atlas = ExtResource("2_fhx5m")
@@ -93,6 +105,30 @@ region = Rect2(102, 50, 17, 25)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jxyh2"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtw3b")
+}],
+"loop": true,
+"name": &"knockback_to_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08rlm")
+}],
+"loop": true,
+"name": &"knockback_to_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ykcb")
+}],
+"loop": true,
+"name": &"knockback_to_up",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yc43a")
