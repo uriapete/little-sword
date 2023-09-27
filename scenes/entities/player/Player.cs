@@ -111,13 +111,12 @@ public partial class Player : CharacterBody2D
 
     private void OnPlayerHitArea2dBodyEntered(Node2D body)
     {
-        //GD.Print("Body hit!");
         if (body.IsInGroup("enemy"))
         {
-            //float angleToHit=GetAngleTo(body.Position);
+            Timer knockbackTimer = GetNode<Timer>("KnockbackTimer");
             Vector2 vectorToHitEnemy=new Vector2(body.Position.X-Position.X, body.Position.Y-Position.Y);
-            float knockbackAngle = (-vectorToHitEnemy).Angle();
-            GD.Print(knockbackAngle);
+            KnockbackAngle = (-vectorToHitEnemy).Angle();
+            knockbackTimer.Start();
         }
     }
 }
