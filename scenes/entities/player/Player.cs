@@ -32,6 +32,12 @@ public partial class Player : CharacterBody2D
         // resets velocity to zero every frame
         Vector2 velocity = Vector2.Zero;
 
+        if (KnockbackTimeLeft > 0)
+        {
+            velocity = Vector2.FromAngle(KnockbackAngle);
+        }
+        else
+        {
         // most of these should be pretty self explanatory
         if (Input.IsActionPressed("move_up"))
         {
@@ -51,6 +57,7 @@ public partial class Player : CharacterBody2D
         if (Input.IsActionPressed("move_right"))
         {
             velocity.X += VelPreMult;
+        }
         }
 
         // normalize speed so player will move same distance when moving diagonal compared to straight cardinals
