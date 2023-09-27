@@ -38,26 +38,26 @@ public partial class Player : CharacterBody2D
         }
         else
         {
-        // most of these should be pretty self explanatory
-        if (Input.IsActionPressed("move_up"))
-        {
-            velocity.Y -= VelPreMult;
-        }
+            // most of these should be pretty self explanatory
+            if (Input.IsActionPressed("move_up"))
+            {
+                velocity.Y -= VelPreMult;
+            }
 
-        if (Input.IsActionPressed("move_down"))
-        {
-            velocity.Y += VelPreMult;
-        }
+            if (Input.IsActionPressed("move_down"))
+            {
+                velocity.Y += VelPreMult;
+            }
 
-        if (Input.IsActionPressed("move_left"))
-        {
-            velocity.X -= VelPreMult;
-        }
+            if (Input.IsActionPressed("move_left"))
+            {
+                velocity.X -= VelPreMult;
+            }
 
-        if (Input.IsActionPressed("move_right"))
-        {
-            velocity.X += VelPreMult;
-        }
+            if (Input.IsActionPressed("move_right"))
+            {
+                velocity.X += VelPreMult;
+            }
         }
 
         // normalize speed so player will move same distance when moving diagonal compared to straight cardinals
@@ -72,45 +72,53 @@ public partial class Player : CharacterBody2D
         // if player is moving:
         if (velocity.Length() > 0)
         {
-
+            string playerState;
+            if (KnockbackTimeLeft > 0)
+            {
+                playerState = "knockback_to";
+            }
+            else
+            {
+                playerState = "walk";
+            }
             // calc what direction player is moving
             // and set animation mode to walk in that direction
             switch ((double)(Mathf.RadToDeg(velocity.Angle())))
             {
                 case > -67.5 and < 67.5:
                     // 0 deg - right
-                    if (animatedSprite2D.Animation != "walk_right" && animatedSprite2D.FlipH != false)
+                    if (animatedSprite2D.Animation != $"{playerState}_right" && animatedSprite2D.FlipH != false)
                     {
                         animatedSprite2D.Stop();
                     }
-                    animatedSprite2D.Animation = "walk_right";
+                    animatedSprite2D.Animation = $"{playerState}_right";
                     animatedSprite2D.FlipH = false;
                     break;
                 case (< -112.5) or (> 112.5):
                     // 180 deg - left
-                    if (animatedSprite2D.Animation != "walk_right" && animatedSprite2D.FlipH != true)
+                    if (animatedSprite2D.Animation != $"{playerState}_right" && animatedSprite2D.FlipH != true)
                     {
                         animatedSprite2D.Stop();
                     }
-                    animatedSprite2D.Animation = "walk_right";
+                    animatedSprite2D.Animation = $"{playerState}_right";
                     animatedSprite2D.FlipH = true;
                     break;
                 case > 67.5 and < 112.5:
                     // 90 - down
-                    if (animatedSprite2D.Animation != "walk_down")
+                    if (animatedSprite2D.Animation != $"{playerState}_down")
                     {
                         animatedSprite2D.Stop();
                     }
-                    animatedSprite2D.Animation = "walk_down";
+                    animatedSprite2D.Animation = $"{playerState}_down";
                     animatedSprite2D.FlipH = false;
                     break;
                 case < -67.5 and > -112.5:
                     // 270 - up
-                    if (animatedSprite2D.Animation != "walk_up")
+                    if (animatedSprite2D.Animation != $"{playerState}_up")
                     {
                         animatedSprite2D.Stop();
                     }
-                    animatedSprite2D.Animation = "walk_up";
+                    animatedSprite2D.Animation = $"{playerState}_up";
                     animatedSprite2D.FlipH = false;
                     break;
             }
