@@ -7,9 +7,19 @@ public partial class Player : CharacterBody2D
     [Export] public int Speed { get; set; } = 100;
 
     // seperated out value to add/sub from velocity values for easy changing
-    [Export] public int VelPreMult = 1;
+    [Export] public int VelPreMult { get; set; } = 1;
 
-    
+    // knockback timer value
+    private double KnockbackTimeLeft
+    {
+        get
+        {
+            Timer timer = GetNode<Timer>("KnockbackTimer");
+            return timer.TimeLeft;
+        }
+    }
+
+    private float KnockbackAngle { get; set; }
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
