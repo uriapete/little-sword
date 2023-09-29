@@ -23,7 +23,10 @@ public partial class Player : CharacterBody2D
 
     private enum Directions
     {
-        down, up, right, left
+        down = 1,
+        up = -1,
+        right = 2,
+        left = -2
     }
 
     private Directions PlayerDirection { get; set; } = Directions.down;
