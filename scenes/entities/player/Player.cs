@@ -237,6 +237,6 @@ public partial class Player : CharacterBody2D
     }
     private void OnKnockbackTimerTimeout()
     {
-        // Replace with function body.
+        PlayerDirection = (Directions)((int)PlayerDirection * -1);
     }
 }
