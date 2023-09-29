@@ -21,9 +21,67 @@ public partial class Player : CharacterBody2D
 
     private float KnockbackAngle { get; set; }
 
+    private enum Directions
+    {
+        down, up, right, left
+    }
+
+    private Directions PlayerDirection { get; set; } = Directions.down;
+
+    private enum PlayerStates
+    {
+        walk, knockback_to
+    }
+
+    private PlayerStates PlayerState
+    {
+        get
+        {
+            if (KnockbackTimeLeft > 0)
+            {
+                return PlayerStates.knockback_to;
+            }
+            else
+            {
+                return PlayerStates.walk;
+            }
+        }
+    }
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+    }
+
+    private void SetSpriteAnimation(Directions direction=(Directions)4)
+    {
+        if (direction != (Directions)4)
+        {
+            PlayerDirection = direction;
+        }
+        AnimatedSprite2D animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        animatedSprite2D.Stop();
+        bool facingLeft = PlayerDirection == Directions.left;
+        animatedSprite2D.Animation = $"{PlayerState}_{(facingLeft ? Directions.right : PlayerDirection)}";
+        animatedSprite2D.FlipH = facingLeft;
+    }
+
+    private bool SpriteAnimationEqualTo(PlayerStates state, Directions direction)
+    {
+        AnimatedSprite2D animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        if (direction == Directions.left)
+        {
+            if (!animatedSprite2D.FlipH || animatedSprite2D.Animation != $"{state}_{Directions.right}")
+            {
+                return false;
+            }
+            else return true;
+        }
+        if (animatedSprite2D.Animation != $"{state}_{direction}"||animatedSprite2D.FlipH)
+        {
+            return false;
+        }
+        return true;
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -72,54 +130,37 @@ public partial class Player : CharacterBody2D
         // if player is moving:
         if (velocity.Length() > 0)
         {
-            string playerState;
-            if (KnockbackTimeLeft > 0)
-            {
-                playerState = "knockback_to";
-            }
-            else
-            {
-                playerState = "walk";
-            }
             // calc what direction player is moving
             // and set animation mode to walk in that direction
             switch ((double)(Mathf.RadToDeg(velocity.Angle())))
             {
                 case > -67.5 and < 67.5:
                     // 0 deg - right
-                    if (animatedSprite2D.Animation != $"{playerState}_right" && animatedSprite2D.FlipH != false)
+                    if (!SpriteAnimationEqualTo(PlayerState, Directions.right))
                     {
-                        animatedSprite2D.Stop();
+                        SetSpriteAnimation(Directions.right);
                     }
-                    animatedSprite2D.Animation = $"{playerState}_right";
-                    animatedSprite2D.FlipH = false;
                     break;
                 case (< -112.5) or (> 112.5):
                     // 180 deg - left
-                    if (animatedSprite2D.Animation != $"{playerState}_right" && animatedSprite2D.FlipH != true)
+                    if (!SpriteAnimationEqualTo(PlayerState, Directions.left))
                     {
-                        animatedSprite2D.Stop();
+                        SetSpriteAnimation(Directions.left);
                     }
-                    animatedSprite2D.Animation = $"{playerState}_right";
-                    animatedSprite2D.FlipH = true;
                     break;
                 case > 67.5 and < 112.5:
                     // 90 - down
-                    if (animatedSprite2D.Animation != $"{playerState}_down")
+                    if (!SpriteAnimationEqualTo(PlayerState, Directions.down))
                     {
-                        animatedSprite2D.Stop();
+                        SetSpriteAnimation(Directions.down);
                     }
-                    animatedSprite2D.Animation = $"{playerState}_down";
-                    animatedSprite2D.FlipH = false;
                     break;
                 case < -67.5 and > -112.5:
                     // 270 - up
-                    if (animatedSprite2D.Animation != $"{playerState}_up")
+                    if (!SpriteAnimationEqualTo(PlayerState, Directions.up))
                     {
-                        animatedSprite2D.Stop();
+                        SetSpriteAnimation(Directions.up);
                     }
-                    animatedSprite2D.Animation = $"{playerState}_up";
-                    animatedSprite2D.FlipH = false;
                     break;
             }
 
@@ -130,7 +171,14 @@ public partial class Player : CharacterBody2D
         // resetting anim when velocity <=0
         else
         {
-            animatedSprite2D.Stop();
+            if (!SpriteAnimationEqualTo(PlayerState,PlayerDirection))
+            {
+                SetSpriteAnimation();
+            }
+            else
+            {
+                animatedSprite2D.Stop();
+            }
         }
     }
 
