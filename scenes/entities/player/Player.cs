@@ -232,4 +232,8 @@ public partial class Player : CharacterBody2D
             knockbackTimer.Start();
         }
     }
+    private void OnKnockbackTimerTimeout()
+    {
+        // Replace with function body.
+    }
 }
