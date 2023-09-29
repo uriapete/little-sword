@@ -140,7 +140,47 @@ public partial class Player : CharacterBody2D
         {
             Timer knockbackTimer = GetNode<Timer>("KnockbackTimer");
             Vector2 vectorToHitEnemy=new Vector2(body.Position.X-Position.X, body.Position.Y-Position.Y);
-            KnockbackAngle = (-vectorToHitEnemy).Angle();
+            float rawKnockbackAngle = (-vectorToHitEnemy).Angle();
+            if (rawKnockbackAngle<0)
+            {
+                for (float i = 0, j = i - MathF.PI / 4; i > (-2 * MathF.PI); i = j, j -= MathF.PI / 4)
+                {
+                    if (rawKnockbackAngle < j)
+                    {
+                        continue;
+                    }
+                    double halfPt = (i + j) / 2;
+                    if (rawKnockbackAngle > halfPt)
+                    {
+                        KnockbackAngle = i;
+                    }
+                    else
+                    {
+                        KnockbackAngle = j;
+                    }
+                    break;
+                }
+            }
+            else
+            {
+                for (float i = 0, j = i + MathF.PI / 4; i < (2 * MathF.PI); i = j, j += MathF.PI / 4)
+                {
+                    if (rawKnockbackAngle > j)
+                    {
+                        continue;
+                    }
+                    double halfPt = (i + j) / 2;
+                    if (rawKnockbackAngle < halfPt)
+                    {
+                        KnockbackAngle = i;
+                    }
+                    else
+                    {
+                        KnockbackAngle = j;
+                    }
+                    break;
+                }
+            }
             knockbackTimer.Start();
         }
     }
