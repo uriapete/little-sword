@@ -190,7 +190,7 @@ public partial class Player : CharacterBody2D
         if (body.IsInGroup("enemy"))
         {
             Timer knockbackTimer = GetNode<Timer>("KnockbackTimer");
-            Vector2 vectorToHitEnemy=new Vector2(body.Position.X-Position.X, body.Position.Y-Position.Y);
+            Vector2 vectorToHitEnemy=new(body.Position.X-Position.X, body.Position.Y-Position.Y);
             float rawKnockbackAngle = (-vectorToHitEnemy).Angle();
             if (rawKnockbackAngle<0)
             {
