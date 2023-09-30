@@ -61,6 +61,11 @@ attack={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="enemies"
+2d_physics/layer_2="player_attack"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
