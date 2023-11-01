@@ -1,4 +1,10 @@
-[gd_scene format=3 uid="uid://c5rjxu32q282g"]
+[gd_scene load_steps=3 format=3 uid="uid://c5rjxu32q282g"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hk1ac"]
+
+[sub_resource type="TileSet" id="TileSet_6atnr"]
+sources/0 = SubResource("TileSetAtlasSource_hk1ac")
 
 [node name="SpawnArea" type="TileMap"]
+tile_set = SubResource("TileSet_6atnr")
 format = 2
